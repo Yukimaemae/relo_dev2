@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ReservationController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +27,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // プレミア会員用のルーティング
 Route::group(['middleware' => ['auth', 'can:premier-only']], function () {
     Route::get('/premier', 'HomeController@premier_index')->name('premier');
+});
+
+Route::prefix('reservation')->middleware('auth')->group(function(){
+
+    Route::get('/', [ReservationController::class, 'index'])->name('reservation.index');
+    Route::get('/reservation_list', [ReservationController::class, 'reservation_list'])->name('reservation.reservation_list');
+    Route::post('/', [ReservationController::class, 'store'])->name('reservation.store');
+
 });
