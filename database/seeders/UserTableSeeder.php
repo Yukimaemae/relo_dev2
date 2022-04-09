@@ -33,7 +33,6 @@ class UserTableSeeder extends Seeder
             ],
         ]);
      
-     $this->call(UserTableSeeder::class);  
    }
    
 }

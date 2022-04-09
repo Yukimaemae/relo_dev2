@@ -12,7 +12,8 @@ class charger extends Model
     protected $appends = ['time_step_values'];
     
     // Accessor
-    public function getTimeStepValuesAttribute() { // １時間の間に予約できる「分」を取得する
+    // １時間の間に予約できる「分」を取得する
+    public function getTimeStepValuesAttribute() { 
 
         $time_step_values = [];
         $count = 60 / $this->time_steps;
@@ -26,4 +27,6 @@ class charger extends Model
         return $time_step_values;
 
     }
+    
+    
 }

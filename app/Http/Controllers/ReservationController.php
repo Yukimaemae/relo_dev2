@@ -10,10 +10,9 @@ class ReservationController extends Controller
 {
     public function index() {
 
-        $chargers = Charger::select('id', 'name', 'time_steps')->get();
-
+        $chargers = charger::select('id', 'name', 'time_steps')->get();
         return view('reservation.index')->with([
-            'Chargers' => $chargers
+            'chargers' => $chargers
         ]);
     }
     public function store(Request $request) {

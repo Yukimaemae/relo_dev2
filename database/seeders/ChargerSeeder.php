@@ -25,8 +25,6 @@ class ChargerSeeder extends Seeder
             $charger->name = 'Charger'. $no;
             $charger->time_steps = $time_steps[$index];
             $charger->save();
-            
-            $this->call(ChargerSeeder::class);
         }
     }
 }
