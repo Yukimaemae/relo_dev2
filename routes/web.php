@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ResultController;
 
 
 /*
@@ -30,9 +31,9 @@ Route::group(['middleware' => ['auth', 'can:premier-only']], function () {
 });
 
 Route::prefix('reservation')->middleware('auth')->group(function(){
-
     Route::get('/', [ReservationController::class, 'index'])->name('reservation.index');
     Route::get('/reservation_list', [ReservationController::class, 'reservation_list'])->name('reservation.reservation_list');
     Route::post('/', [ReservationController::class, 'store'])->name('reservation.store');
+    });
 
-});
+Route::get('/result', [ResultController::class, 'currentLocation'])->name('result.currentLocation');

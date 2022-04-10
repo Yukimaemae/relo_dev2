@@ -80,5 +80,12 @@
             @yield('content')
         </main>
     </div>
+        <script>
+        window.addEventListener('DOMContentLoaded', function () {
+                $('#example').on('click', function (event) {
+            });
+        });
+        </script>
+    @stack('js')
 </body>
 </html>
