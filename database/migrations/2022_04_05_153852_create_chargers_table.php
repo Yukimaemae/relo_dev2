@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('chargers', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->comment('charger name');
+            $table->string('name')->comment('場所名');
+            $table->string('address')->comment('所在地');
+            $table->geometry('location')->comment('緯度・経度');
             $table->unsignedInteger('time_steps')->comment('time_table');
             $table->timestamps();
+            
+            $table->spatialIndex('location');
         });
     }
 

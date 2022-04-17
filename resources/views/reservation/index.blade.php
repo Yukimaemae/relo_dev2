@@ -51,7 +51,9 @@
                 dt: null,
                 chargers: @json($chargers),
             }
+        
         },
+      
         methods: {
             getReservations() {
 

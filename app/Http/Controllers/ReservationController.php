@@ -4,17 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
-use App\Models\charger;
+use App\Models\User;//この行を上に追加
+use Auth;//この行を上に追加
+use Validator;//この行を上に追加
+use App\Models\Chargerrsv;
+use App\Models\Charger;
 
 class ReservationController extends Controller
 {
     public function index() {
 
         $chargers = charger::select('id', 'name', 'time_steps')->get();
+        
         return view('reservation.index')->with([
             'chargers' => $chargers
         ]);
+    
+        echo $chargers;    
+
     }
+    
     public function store(Request $request) {
 
         // TODO: バリデーションは省略しています
@@ -40,4 +49,14 @@ class ReservationController extends Controller
         ];
 
     }
+    
+    public function show() {
+        // 全ての投稿を取得
+        $reservations = Reservation::get();
+        
+        return view('home',[
+            'reservations'=> $reservations
+            ]);
+    }
+    
 }

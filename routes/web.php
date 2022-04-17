@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ResultController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\InfoController;
+use \App\Http\Controllers\ChargerController;
 
 
 /*
@@ -21,9 +25,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contactus',[ContactController::class,'index'])->name('contactus');
+
+
+Route::get('/companyinfo',[InfoController::class,'index'])->name('companyinfo');
+
+
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [ReservationController::class, 'show'])->name('history');
 
 // プレミア会員用のルーティング
 Route::group(['middleware' => ['auth', 'can:premier-only']], function () {
@@ -36,4 +48,5 @@ Route::prefix('reservation')->middleware('auth')->group(function(){
     Route::post('/', [ReservationController::class, 'store'])->name('reservation.store');
     });
 
-Route::get('/result', [ResultController::class, 'currentLocation'])->name('result.currentLocation');
+Route::get('charger_view', [ChargerController::class, 'index'])->name('charger.index');
+Route::get('charger/list', [ChargerController::class, 'list'])->name('charger.list');

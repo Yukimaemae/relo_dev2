@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-
+//@extends('layouts.app')
+//@push('css')
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/style-rtl.css') }}" rel="stylesheet">
+//@endpush
 
+//@section('content')
 <html lang="en-US" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -12,12 +15,12 @@
     Document Title
     =============================================
     -->
-    <title>ReLO</title>
+    <title>ReLO Contact Us</title>
     <!--  
     Favicons
     =============================================
     -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicons/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicons/favicon.ico)}}">
     <!--  
     Stylesheets
     =============================================
@@ -51,99 +54,63 @@
           <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
               <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-              <a class="navbar-brand" href="{{ url('/') }}">ReLO</a>
+              <a class="navbar-brand" href="welcome.blade.php">ReLO</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
- 
+  
+
+
+         
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Services</a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="">For companies</a></li>
-                  <li><a href="">For EV users</a></li>
+                  <li><a href="#">For companies</a></li>
+                  <li><a href="#">For EV users</a></li>
                 </ul>
               </li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Company</a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="{{ route('companyinfo') }}">Information</a></li>
-                  <li><a href="{{ route('contactus') }}">Contact</a></li>
-                //</ul>
+                  <li><a href="companyinfo.blade.php">Information</a></li>
+                  <li><a href="contactus.blade.php">Contact</a></li>
+                </ul>
               </li>
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ route('register') }}">Register</a></li>
-                  <li><a href="">Login-Companies</a></li>
+                  <li><a href="#">Login-Companies</a></li>
                   <li><a href="{{ route('login') }}">Login-users</a></li>
-                //</ul>
+                </ul>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <section class="home-section home-fade home-full-height bg-dark-60 landing-header" id="home">
-        <div class="video_wrapper">
-          <video autoplay muted playsinline loop>
-              <source src="{{ asset('assets/images/landing/video.mp4')}}" type="video/mp4">
-          </video>
-      </div>
-       
+      
+      <section class="module bg-dark-60 about-page-header" data-background="{{ asset('assets/images/landing/office.jpg)}}">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="module-title font-alt">CONTACT US</h2>
+              <div class="module-subtitle font-serif">We make EV users’ life more stress-free.<br>
+                With our service, you can charge your EV
+                when you need, where you need. </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <div class="main">
-        <section class="module-medium" id="about">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-                <h2 class="module-title font-serif large-text">Our vision</h2>
-                <div class="module-subtitle font-serif large-text">
-                  
-                  We make EV users’ life more stress-free.<br>
-                  With our service, you can charge your EV<br>
-                  when you need, where you need. 
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div class="container">
-            <div class="row landing-image-text">
-              <div class="col-sm-6 col-sm-push-6"><img class="center-block" src="{{ asset('assets/images/landing/companies.jpg')}}" alt=""></div>
-              <div class="col-sm-6 col-sm-pull-6">
-                <h2 class="module-title font-serif large-text">For Companies</h2>
-                <p>You can introduce EV chargers in more flexible way.
-
-                  You can choose weekdays plan/ weekends plan, 
-                  depending on when your employees or customers 
-                  want to use EV chargers.
-                  
-                  You can introduce EV chargers from XX USD/month.
-                  No need for contructions.</p><a class="btn btn-border-d btn-circle" href="#">More details</a>
-              </div>
-            </div>
-            <div class="row landing-image-text">
-              <div class="col-sm-6"><img class="center-block" src="{{ asset('assets/images/landing/evusers.jpg')}}" alt=""></div>
-              <div class="col-sm-6">
-                <h2 class="module-title font-serif large-text">For EV users</h2>
-                <p>Our service relieves your concern on unpredictable availability of EV chargers.
-
-                  You can check the EV charger availability and 
-                  complete online reservation of EV chargers through App. 
-                  
-                  You can use this serivce from XX USD/month.</p>
-               <a class="btn btn-border-d btn-circle" href="">More details</a>
-              </div>
-            </div>
-          </div>
-        </section>
        
+
+
+      <div class="main">
+
 
         <section class="module">
           <div class="container">
             <div class="row">
-              <h2 class="module-title font-serif large-text">Contact Us</h2>
               <div class="col-sm-6">
-                <h4 class="font-serif">Get in touch</h4><br/>
+                <h4 class="font-alt">Get in touch</h4><br/>
                 <form id="contactForm" role="form" method="post" action="php/contact.php">
                   <div class="form-group">
                     <label class="sr-only" for="name">Name</label>
@@ -166,11 +133,11 @@
                 <div class="ajax-response font-alt" id="contactFormResponse"></div>
               </div>
               <div class="col-sm-6">
-                <h4 class="font-serif">Office</h4><br/>
+                <h4 class="font-alt">Office</h4><br/>
                 <p>6-1, Marunouchi 2-Chome, Chiyoda-ku, Tokyo, 100-8086<br>
                   Phone: +81-3-3210-2121</p>
                 <hr/>
-                <h4 class="font-serif">Business Hours</h4><br/>
+                <h4 class="font-alt">Business Hours</h4><br/>
                 <ul class="list-unstyled">
                   <li>Mon - Fri: 8am to 6pm</li>
                   <li>Sat, Sun: 10am to 2pm</li>
@@ -222,3 +189,4 @@
     <script src="{{ asset('assets/js/main.js')}}"></script>
   </body>
 </html>
+//@endsection
