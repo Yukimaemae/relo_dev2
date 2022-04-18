@@ -151,8 +151,7 @@
                     const location = [charger.latitude, charger.longitude];
                     const marker = L.marker(location).addTo(this.map)
                         .bindPopup(`<a href="${charger.map_url}" target="_blank">Googleマップで表示</a><p>
-                        <a href="/reservation">予約する</a>
-                        `)
+                        <a href="/reservation">予約する</a> `)
                         .bindTooltip(`${charger.name}（${charger.address}）`);
                     this.markers.push(marker);
 

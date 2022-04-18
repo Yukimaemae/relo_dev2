@@ -17,7 +17,7 @@
             <div v-for="hours in allHours">
                 <div class="row">
                     <div class="col-auto pr-5 py-2">
-                        <span v-text="getPaddedNumber(hours)">Hour</span>
+                        Hour <span v-text="getPaddedNumber(hours)"></span>
                     </div>
                     <div class="col-auto p-2" v-for="minutes in charger.time_step_values">
                         <button
@@ -53,7 +53,6 @@
             }
         
         },
-      
         methods: {
             getReservations() {
 
@@ -80,7 +79,7 @@
                     minutes: minutes
                 })
                 const endDt = startDt.plus({ minutes: timeSteps });
-                return startDt.toFormat('H:mm') +' 〜 '+ endDt.toFormat('H:mm') +' のご予約';
+                return startDt.toFormat('H:mm') +' 〜 '+ endDt.toFormat('H:mm') +' reservation';
 
             },
             isReservationAvailable(chargerId, hours, minutes) {
@@ -98,7 +97,7 @@
                     minutes: minutes
                 })
                 const startsAt = dt.toFormat('yyyy-MM-dd HH:mm:00');
-                const hasReservation = this.reservations.some(reservation => { // 指定した条件が存在してたら true
+                const hasReservation = this.reservations.some(reservation => { // 指定した条件が存在してたらtrue
 
                     return (
                         parseInt(reservation.charger_id) === parseInt(chargerId) &&

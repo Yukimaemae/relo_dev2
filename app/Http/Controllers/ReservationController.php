@@ -19,10 +19,17 @@ class ReservationController extends Controller
         return view('reservation.index')->with([
             'chargers' => $chargers
         ]);
-    
-        echo $chargers;    
+      }
+      
+      
+    //public function index() {
 
-    }
+    //    $chargers = charger::select('id', 'name', 'time_steps')->get();
+        
+    //    return view('reservation.index')->with([
+    //        'chargers' => $chargers
+    //    ]);
+    // }
     
     public function store(Request $request) {
 
