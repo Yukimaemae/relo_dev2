@@ -59,7 +59,7 @@ class ReservationController extends Controller
     
     public function show() {
         // 全ての投稿を取得
-        $reservations = Reservation::get();
+        $reservations = Reservation::orderBy('created_at', 'asc')->get();
         
         return view('home',[
             'reservations'=> $reservations

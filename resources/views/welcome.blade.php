@@ -69,10 +69,10 @@
                 //</ul>
               </li>
 
-              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
+              <li class="dropdown"><a class="dropdown-toggle" href="" data-toggle="dropdown">Login</a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ route('register') }}">Register</a></li>
-                  <li><a href="">Login-Companies</a></li>
+                  <li><a href="{{ url('/loginregister') }}">Login-Companies</a></li>
                   <li><a href="{{ route('login') }}">Login-users</a></li>
                 //</ul>
               </li>

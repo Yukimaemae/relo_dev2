@@ -44,7 +44,7 @@
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     
-</head>
+
     
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
@@ -97,7 +97,7 @@
 
 
     <div id="app" class="p-4">
-    <h2 class="font-serif large-text" style="text-align: center;">Our Charging Spot </h2>
+    <h2 class="font-serif large-text" style="text-align: center;">Our Charging Spots </h2>
     <div class="p-4">
         <h3 class="font-serif large-text" style="text-align: center;">Please choose your destination</h3>
     </div class="col-sm-6">
@@ -225,7 +225,10 @@
                             <tr>
                                 <!-- 投稿タイトル -->
                                 <td class="table-text">
-                                    <div>{{ $reservation->reservation_starts_at }}</div>
+                                    <div>{{ $reservation->id }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $reservation->starts_at }}</div>
                                 </td>
                                  <!-- 投稿詳細 -->
                                 <td class="table-text">

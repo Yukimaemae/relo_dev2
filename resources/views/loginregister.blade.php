@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-//@extends('layouts.app')
-//@push('css')
+
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/style-rtl.css') }}" rel="stylesheet">
-//@endpush
 
-//@section('content')
 
 <html lang="en-US" dir="ltr">
   <head>
@@ -21,7 +18,7 @@
     Favicons
     =============================================
     -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicons/favicon.ico)}}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicons/favicon.ico')}}">
     <!--   
     Stylesheets
     =============================================
@@ -55,7 +52,7 @@
           <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
               <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-              <a class="navbar-brand" href="welcome.blade.php">ReLO</a>
+              <a class="navbar-brand" href="{{ url('/') }}">ReLO</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -71,15 +68,15 @@
               </li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Company</a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="companyinfo.blade.php">Information</a></li>
-                  <li><a href="contactus.blade.php">Contact</a></li>
+                  <li><a href="{{ route('companyinfo') }}">Information</a></li>
+                  <li><a href="{{ route('contactus') }}">Contact</a></li>
                 </ul>
               </li>
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ route('register') }}">Register</a></li>
-                  <li><a href="#">Login-Companies</a></li>
+                  <li><a href="{{ url('/loginregister') }}">Login-Companies</a></li>
                   <li><a href="{{ route('login') }}">Login-users</a></li>
                 </ul>
               </li>
@@ -175,4 +172,3 @@
     <script src="{{ asset('assets/js/main.js')}}"></script>
   </body>
 </html>
-//@endsection

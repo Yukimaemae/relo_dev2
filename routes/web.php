@@ -7,6 +7,7 @@ use App\Http\Controllers\ResultController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\LoginregisterController;
 use \App\Http\Controllers\ChargerController;
 
 
@@ -26,9 +27,8 @@ Route::get('/', function () {
 });
 
 Route::get('/contactus',[ContactController::class,'index'])->name('contactus');
-
-
 Route::get('/companyinfo',[InfoController::class,'index'])->name('companyinfo');
+Route::get('/loginregister',[LoginregisterController::class,'index'])->name('loginregister');
 
 
 
